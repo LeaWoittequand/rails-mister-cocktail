@@ -5,6 +5,7 @@ puts 'Creating cocktails...'
 cocktails_attributes = [
   {
     name:         "Mint Julep",
+
   },
   {
     name:         "Whiskey Sour",
