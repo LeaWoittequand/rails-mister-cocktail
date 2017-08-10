@@ -1,3 +1,5 @@
+ruby '2.3.4'
+
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
@@ -39,7 +41,6 @@ gem "font-awesome-sass"
 gem "simple_form"
 gem "autoprefixer-rails"
 
-ruby '2.3.3'
 
 
 group :development, :test do
