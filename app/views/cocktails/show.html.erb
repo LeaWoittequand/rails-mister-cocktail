@@ -1,22 +1,33 @@
-<h1> UN COCKTAIL </h1>
+
+<div class="container">
+    <h3 class="text-center"><%= @cocktail.name %></h3>
+    <div class="row">
+     <% if @cocktail.photos.each do |photo|  %>
+     <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+     <% end %>
+     <% end %>
+   </div>
+
+   <div class="row">
+    <h3> Doses </h3>
+    <% @cocktail.doses.all.each do |dose| %>
+
+    <p><%= dose.description %>: <%= dose.ingredient.name %></p>
+
+    <%= link_to "Delete", dose_path(dose),
+    method: :delete,
+    data: { confirm: "Are you sure?" } %>
+
+    <% end %>
+  </div>
+
+  <div class="row">
+    <%= link_to 'add a new dose', new_cocktail_dose_path(@cocktail), {class: "btn btn-success btn-lg"} %>
+  </div>
+
+  <div class="row">
+    <%= link_to 'all cocktails', cocktails_path, {class: "btn btn-success btn-lg"} %>
+  </div>
+</div>
 
 
-
-<h3><%= @cocktail.name %></h3>
-<h3> Doses </h3>
-<% @cocktail.doses.all.each do |dose| %>
-
-<p><%= dose.description %>: <%= dose.ingredient.name %></p>
-
-<%= link_to "Delete", dose_path(dose),
-method: :delete,
-data: { confirm: "Are you sure?" } %>
-
-<% end %>
-<br>
-<br>
-<br>
-<%= link_to 'add a new dose', new_cocktail_dose_path(@cocktail) %>
-<br>
-<br>
-<%= link_to 'all cocktails', cocktails_path %>
